@@ -1,0 +1,61 @@
+body {
+  padding: 0px;
+  margin: 0px auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+  color: #2c3e50;
+}
+
+//home.vue
+.el-menu-item, .el-submenu__title {
+  color: #a7b1c2;
+}
+
+.el-menu .el-menu-item, .el-submenu .el-submenu__title {
+  height: 46px;
+  line-height: 46px;
+  font-weight: 650;
+}
+
+.el-menu-item:hover, .el-submenu .el-menu-item:hover, .el-submenu__title:hover {
+  background-color: #293846;
+  color: #fff;
+}
+
+.el-submenu .el-menu-item {
+  background-color: #2f4050
+}
+
+.el-submenu .el-menu-item:hover {
+  background-color: #4A5064
+}
+
+.el-submenu .el-menu-item.is-active, .el-menu-item.is-active,
+.el-submenu .el-menu-item.is-active:hover, .el-menu-item.is-active:hover {
+  //background-color: #293846;
+  color: #fff;
+}
+
+.el-menu .iconfont {
+  vertical-align: baseline;
+  margin-right: 6px;
+}
+
+.el-menu .fa {
+  vertical-align: middle;
+  margin-right: 6px;
+  font-size: 20px;
+}
+
+.warp-breadcrum{
+  margin: 5px 10px 15px 0px;
+}

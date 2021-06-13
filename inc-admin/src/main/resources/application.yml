@@ -1,0 +1,26 @@
+server:
+  port: 8001
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  application:
+    name: api-admin
+  servlet:
+    multipart:
+      max-file-size: 1024Mb
+      max-request-size: 1204Mb
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+mybatis:
+  mapper-locations: mapper/**Mapper.xml,mapper/sys/**Mapper.xml,mapper/biz/**Mapper.xml
+  configuration:
+      map-underscore-to-camel-case: true
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#logging:
+#  level: debug
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

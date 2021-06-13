@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/inc?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+app:
+  #服务器配置
+  #filePath: /Users/zhangdi/home/proj/inc/uploaded_files/
+  filePath: uploaded_files/
+  #计数文件路径
+  countFilePath: incfile/
+  pre: /files

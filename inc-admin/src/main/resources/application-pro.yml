@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/inc?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: inc
+    password: Inc@1234
+app:
+  #服务器配置
+  filePath: /home/www/inc/app/uploaded_files/
+  pre: /files

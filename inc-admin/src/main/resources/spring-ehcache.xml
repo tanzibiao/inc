@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <!-- 磁盘缓存位置 -->
+    <diskStore path="java.io.tmpdir"/>
+    <!--切换为ehcache 缓存时使用-->
+    <cache name="permission" maxElementsInMemory="1000" />
+
+    <!-- 默认缓存 -->
+    <defaultCache eternal="false"
+                  maxElementsInMemory="1000"
+                  overflowToDisk="false"
+                  diskPersistent="false"
+                  timeToIdleSeconds="0"
+                  timeToLiveSeconds="600"
+                  memoryStoreEvictionPolicy="LRU">
+    </defaultCache>
+
+    <cache name="bizCache"
+           maxEntriesLocalHeap="10000"
+           eternal="false"
+           timeToIdleSeconds="0"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+</ehcache>
