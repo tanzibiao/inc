@@ -11,11 +11,29 @@
  Target Server Version : 50734
  File Encoding         : 65001
 
- Date: 13/06/2021 12:50:16
+ Date: 14/06/2021 21:10:02
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for book
+-- ----------------------------
+DROP TABLE IF EXISTS `book`;
+CREATE TABLE `book`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '书名',
+  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '状态',
+  `user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '借书人',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '图书' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of book
+-- ----------------------------
+INSERT INTO `book` VALUES (1, '钢铁是怎样练成的1', '借出', '张三');
+INSERT INTO `book` VALUES (2, '书名2', '在管', '无');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -35,7 +53,7 @@ CREATE TABLE `sys_menu`  (
   `gmt_modified` datetime NULL DEFAULT NULL COMMENT '修改时间',
   `redirect` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 105 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单管理' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 107 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单管理' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -62,6 +80,8 @@ INSERT INTO `sys_menu` VALUES (80, 79, '数据字典', '/a', NULL, 1, NULL, NULL
 INSERT INTO `sys_menu` VALUES (81, 78, '文件管理', '/cms/file', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_menu` VALUES (82, 81, '列表', '/api-cms/file', 'cms:file', 2, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `sys_menu` VALUES (87, 81, '上传', '/file/upload', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_menu` VALUES (105, 0, '图书管理', '/', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_menu` VALUES (106, 105, '图书列表', '/book', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -93,7 +113,7 @@ CREATE TABLE `sys_role_menu`  (
   `role_id` bigint(20) NULL DEFAULT NULL COMMENT '角色ID',
   `menu_id` bigint(20) NULL DEFAULT NULL COMMENT '菜单ID',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3445 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '角色与菜单对应关系' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3463 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '角色与菜单对应关系' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role_menu
@@ -194,27 +214,24 @@ INSERT INTO `sys_role_menu` VALUES (2340, 77, 87);
 INSERT INTO `sys_role_menu` VALUES (2344, 77, 72);
 INSERT INTO `sys_role_menu` VALUES (2345, 77, -1);
 INSERT INTO `sys_role_menu` VALUES (2346, 77, 77);
-INSERT INTO `sys_role_menu` VALUES (3424, 1, 91);
-INSERT INTO `sys_role_menu` VALUES (3425, 1, 95);
-INSERT INTO `sys_role_menu` VALUES (3426, 1, 94);
-INSERT INTO `sys_role_menu` VALUES (3427, 1, 93);
-INSERT INTO `sys_role_menu` VALUES (3428, 1, 92);
-INSERT INTO `sys_role_menu` VALUES (3429, 1, 3);
-INSERT INTO `sys_role_menu` VALUES (3430, 1, 7);
-INSERT INTO `sys_role_menu` VALUES (3431, 1, 56);
-INSERT INTO `sys_role_menu` VALUES (3432, 1, 55);
-INSERT INTO `sys_role_menu` VALUES (3433, 1, 15);
-INSERT INTO `sys_role_menu` VALUES (3434, 1, 6);
-INSERT INTO `sys_role_menu` VALUES (3435, 1, 26);
-INSERT INTO `sys_role_menu` VALUES (3436, 1, 25);
-INSERT INTO `sys_role_menu` VALUES (3437, 1, 14);
-INSERT INTO `sys_role_menu` VALUES (3438, 1, 13);
-INSERT INTO `sys_role_menu` VALUES (3439, 1, 12);
-INSERT INTO `sys_role_menu` VALUES (3440, 1, 2);
-INSERT INTO `sys_role_menu` VALUES (3441, 1, 77);
-INSERT INTO `sys_role_menu` VALUES (3442, 1, 22);
-INSERT INTO `sys_role_menu` VALUES (3443, 1, 21);
-INSERT INTO `sys_role_menu` VALUES (3444, 1, 20);
+INSERT INTO `sys_role_menu` VALUES (3445, 1, 105);
+INSERT INTO `sys_role_menu` VALUES (3446, 1, 106);
+INSERT INTO `sys_role_menu` VALUES (3447, 1, 3);
+INSERT INTO `sys_role_menu` VALUES (3448, 1, 7);
+INSERT INTO `sys_role_menu` VALUES (3449, 1, 56);
+INSERT INTO `sys_role_menu` VALUES (3450, 1, 55);
+INSERT INTO `sys_role_menu` VALUES (3451, 1, 15);
+INSERT INTO `sys_role_menu` VALUES (3452, 1, 6);
+INSERT INTO `sys_role_menu` VALUES (3453, 1, 26);
+INSERT INTO `sys_role_menu` VALUES (3454, 1, 25);
+INSERT INTO `sys_role_menu` VALUES (3455, 1, 14);
+INSERT INTO `sys_role_menu` VALUES (3456, 1, 13);
+INSERT INTO `sys_role_menu` VALUES (3457, 1, 12);
+INSERT INTO `sys_role_menu` VALUES (3458, 1, 2);
+INSERT INTO `sys_role_menu` VALUES (3459, 1, 77);
+INSERT INTO `sys_role_menu` VALUES (3460, 1, 22);
+INSERT INTO `sys_role_menu` VALUES (3461, 1, 21);
+INSERT INTO `sys_role_menu` VALUES (3462, 1, 20);
 
 -- ----------------------------
 -- Table structure for sys_user
