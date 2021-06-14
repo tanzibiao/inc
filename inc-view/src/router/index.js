@@ -8,7 +8,7 @@ import UserList from '@/view/user/list'
 import UserChangePwd from '@/view/user/changepwd'
 import UserProfile from '@/view/user/profile'
 import MenuList from '@/view/menu/list'
-
+import Book from '@/view/book/list'
 
 
 // 懒加载方式，当路由被访问的时候才加载对应组件
@@ -50,6 +50,17 @@ let router = new Router({
       iconCls: 'fa fa-user', // 图标样式class
       children: [
         {path: '/admin/user', component: UserList, name: '用户列表', menuShow: true}
+      ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: '图书管理',
+      menuShow: true,
+      leaf: true, // 只有一个节点
+      iconCls: 'fa fa-user', // 图标样式class
+      children: [
+        {path: '/book', component: Book, name: '图书列表', menuShow: true}
       ]
     },
     {
