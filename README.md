@@ -8,7 +8,7 @@ java1.8 node v8.12.0
 </p>
 
 <p align="center">    
-    <a target="_blank" href="https://github.com/tanzibiao/mybatis-generator-core">点击这里查看视频教程-8分钟学完前后分离增删改查</a>
+    <a target="_blank" href="https://www.bilibili.com/video/BV1qB4y1M7vP">点击这里查看视频教程-8分钟学完前后分离增删改查</a>
 </p>
 <p align="center">    
     <a target="_blank" href="https://github.com/tanzibiao/mybatis-generator-core">点击这里跳转到代码生成工具-github（国际）</a>
