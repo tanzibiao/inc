@@ -11,7 +11,6 @@ import MenuList from '@/view/menu/list'
 import Book from '@/view/book/list'
 
 
-
 // 懒加载方式，当路由被访问的时候才加载对应组件
 const Login = resolve => require(['@/view/Login'], resolve)
 

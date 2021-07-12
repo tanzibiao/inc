@@ -6,11 +6,12 @@ import com.inc.admin.dao.biz.BookDao;
 import com.inc.admin.domain.biz.Book;
 import com.inc.admin.domain.biz.BookCriteria;
 import com.inc.admin.service.biz.BookService;
-import java.util.List;
-import javax.annotation.Resource;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 图书Service实现类
