@@ -10,27 +10,41 @@
     <el-col :span="24" class="warp-main" v-loading="loading" element-loading-text="拼命加载中">
       <!--工具条-->
       <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
-        <el-form :inline="true" :model="filters">
-          <el-form-item>
-            <el-input v-model="filters.id" placeholder="编号" @keyup.enter.native="handleSearch"></el-input>
-          </el-form-item>
+        <el-form role="form" size="small" id="projectForm" class="form-horizontal details">
+          <el-row>
+            <el-col :xs="colLayOut.xs" :lg="colLayOut.lg" :sm="colLayOut.sm" :md="colLayOut.md">
+              <el-form-item :label-width="formLabelWidth" label="编号:">
+                <el-input size="mini" type="text" v-model="filters.id" clearable>
+                </el-input>
+              </el-form-item>
+            </el-col>
+            <el-collapse-transition>
+              <div v-show="showQueryCondition">
 
-          <el-form-item>
-            <el-input v-model="filters.name" placeholder="书名" @keyup.enter.native="handleSearch"></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" icon="el-icon-search" :loading="loading" v-on:click="handleSearch">查询</el-button>
-          </el-form-item>
+              </div>
+            </el-collapse-transition>
+
+
+            <el-col :span="24">
+              <el-form-item label-width="100px" style="float: right">
+                <el-button :loading="loading" router-preventReClick size="mini" type="primary" plain icon="el-icon-search"
+                           @click="handleSearch">查询
+                </el-button>
+                <ShowMore :clickCall="()=>this.showQueryCondition=!this.showQueryCondition"/>
+              </el-form-item>
+            </el-col>
+          </el-row>
         </el-form>
       </el-col>
 
-      <addForm :call="search" icon="el-icon-plus" type="primary" title="新增"/>
+      <addForm size="mini" :call="search" icon="el-icon-plus" type="primary" title="新增"/>
       <!--列表-->
       <el-table :data="dataList" highlight-current-row @selection-change="selsChange" style="width: 100%;">
         <el-table-column type="index" width="60"></el-table-column>
         <el-table-column prop="name" label="书名"></el-table-column>
         <el-table-column prop="status" label="状态"></el-table-column>
         <el-table-column prop="user" label="借书人"></el-table-column>
+        <el-table-column prop="del" label="是否删除"></el-table-column>
         <el-table-column label="操作" width="150">
           <template slot-scope="scope">
             <addForm :call="search" :data="scope.row" size="mini" title="编辑"/>
@@ -40,7 +54,7 @@
       </el-table>
 
       <!--工具条-->
-      <el-col :span="24" class="toolbar">
+      <el-col size="mini" :span="24" class="toolbar">
         <el-pagination
           style="margin-top: 10px"
           background
@@ -58,12 +72,15 @@
   </el-row>
 </template>
 <script>
-  import addForm from './components/addForm'
+  import addForm from './components/addForm';
   import api from '@/api/apiBook';
+  import ShowMore from '@/components/ShowMore';
 
   export default {
     data() {
       return {
+        colLayOut: {xs: 12,sm:12,md:6, lg: 6},
+        formLabelWidth: "160px",
         filters: {
           id: ''
         },
@@ -72,11 +89,12 @@
         page: 1,
         pageSize: 10,
         loading: false,
+        showQueryCondition: false,
       }
     },
     //组件
     components: {
-      addForm,
+      addForm,ShowMore,
     },
     //方法
     methods: {

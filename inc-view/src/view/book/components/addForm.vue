@@ -6,13 +6,16 @@
       <el-dialog :title="title" :visible.sync="addFormVisible" :close-on-click-modal="false">
         <el-form :model="data" label-width="80px" :rules="addFormRules" ref="addForm">
           <el-form-item label="书名" prop="name">
-            <el-input v-model="data.name" auto-complete="off"></el-input>
+            <el-input size="mini" v-model="data.name" auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item label="状态" prop="status">
-            <el-input v-model="data.status" auto-complete="off"></el-input>
+            <el-input size="mini" v-model="data.status" auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item label="借书人" prop="user">
-            <el-input v-model="data.user" auto-complete="off"></el-input>
+            <el-input size="mini" v-model="data.user" auto-complete="off"></el-input>
+          </el-form-item>
+          <el-form-item label="是否删除" prop="del">
+            <el-input size="mini" v-model="data.del" auto-complete="off"></el-input>
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
@@ -76,6 +79,9 @@
           ],
           user: [
             {required: true, message: '请输入借书人', trigger: 'blur'}
+          ],
+          del: [
+            {required: true, message: '请输入是否删除', trigger: 'blur'}
           ],
         },
 
