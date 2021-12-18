@@ -2,57 +2,41 @@ package com.inc.admin.service.biz;
 
 import com.github.pagehelper.PageInfo;
 import com.inc.admin.domain.biz.Book;
-
 import java.util.List;
 
 /**
- * 图书Service类
- * 
+ * 图书管理 service
  * @author tanzibiao
- * @date 2021/06/13
- *
- * @mbg.generated 2021/06/13
- */
+ * @date 2021-12-11 01:34:36
+*/
 public interface BookService {
     /**
      * 分页查询
-     * @param req
-     * @return 
      */
     PageInfo<Book> listByPage(Book req);
 
     /**
-     * 获取list
-     * @param req
-     * @return 
+     * 查询列表
      */
     List<Book> getList(Book req);
 
     /**
      * 单个查询
-     * @param req
-     * @return 
      */
     Book getOne(Book req);
 
     /**
      * 新增
-     * @param record
-     * @return 
      */
-    int insert(Book record);
+    int insert(Book req);
 
     /**
-     * 根据主键修改该记录
-     * @param record
-     * @return 
+     * 根据主键修改
      */
-    int update(Book record);
+    int update(Book req);
 
     /**
-     * 根据主键删除该记录
-     * @param id
-     * @return 
+     * 根据主键删除
      */
     int delete(Integer id);
 }

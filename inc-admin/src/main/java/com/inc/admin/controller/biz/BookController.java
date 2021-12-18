@@ -1,35 +1,26 @@
 package com.inc.admin.controller.biz;
 
-import com.inc.admin.controller.sys.BaseController;
 import com.inc.admin.domain.biz.Book;
 import com.inc.admin.service.biz.BookService;
 import com.inc.admin.utils.R;
-import lombok.extern.slf4j.Slf4j;
+import javax.annotation.Resource;
+import javax.validation.constraints.NotNull;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.validation.constraints.NotNull;
-
 /**
- * 图书Controller类
- * 
+ * 图书管理 控制器
  * @author tanzibiao
- * @date 2021/06/13
- *
- * @mbg.generated 2021/06/13
- */
-@RequestMapping("/book")
+ * @date 2021-12-11 01:34:36
+*/
 @RestController
-@Slf4j
-public class BookController extends BaseController {
+@RequestMapping("/book")
+public class BookController {
     @Resource
     private BookService bookService;
 
     /**
-     * 分页查询
-     * @param req
-     * @return 
+     * 分页查询 图书列表
      */
     @PostMapping("/listByPage")
     public R listByPage(@RequestBody Book req) {
@@ -37,9 +28,7 @@ public class BookController extends BaseController {
     }
 
     /**
-     * 添加
-     * @param req
-     * @return 
+     * 添加 图书信息
      */
     @PostMapping("/insert")
     public R insert(@RequestBody Book req) {
@@ -47,9 +36,7 @@ public class BookController extends BaseController {
     }
 
     /**
-     * 更新
-     * @param req
-     * @return 
+     * 更新 图书信息
      */
     @PostMapping("/update")
     public R update(@RequestBody Book req) {
@@ -57,9 +44,7 @@ public class BookController extends BaseController {
     }
 
     /**
-     * 删除
-     * @param id
-     * @return 
+     * 删除 图书信息
      */
     @PostMapping("/delete")
     public R delete(@Validated @NotNull(message = "编号不能为空") @RequestParam("id") @RequestBody Integer id) {
