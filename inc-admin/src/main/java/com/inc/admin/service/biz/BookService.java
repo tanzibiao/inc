@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 图书管理 service
  * @author tanzibiao
- * @date 2021-12-11 01:34:36
+ * @date 2023-05-08 20:19:41
 */
 public interface BookService {
     /**

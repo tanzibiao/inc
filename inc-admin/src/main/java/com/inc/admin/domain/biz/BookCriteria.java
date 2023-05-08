@@ -3,14 +3,6 @@ package com.inc.admin.domain.biz;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 图书实体类
- * 
- * @author tanzibiao
- * @date 2021/06/13
- *
- * @mbg.generated 2021/06/13
- */
 public class BookCriteria {
     protected String orderByClause;
 
@@ -24,70 +16,56 @@ public class BookCriteria {
 
     protected Integer pageSize = 10;
 
-    protected String fields;
-
     /**
-     * BookCriteria
-     * @return 
      */
     public BookCriteria() {
         oredCriteria = new ArrayList<>();
     }
 
     /**
-     * setOrderByClause
      * @param orderByClause
-     * @return 
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
     /**
-     * getOrderByClause
-     * @return 
+     * @return java.lang.String
      */
     public String getOrderByClause() {
         return orderByClause;
     }
 
     /**
-     * setDistinct
      * @param distinct
-     * @return 
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
     }
 
     /**
-     * isDistinct
-     * @return 
+     * @return boolean
      */
     public boolean isDistinct() {
         return distinct;
     }
 
     /**
-     * getOredCriteria
-     * @return 
+     * @return java.util.List<Criteria>
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
     }
 
     /**
-     * or
      * @param criteria
-     * @return 
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
     }
 
     /**
-     * or
-     * @return 
+     * @return Criteria
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -96,8 +74,7 @@ public class BookCriteria {
     }
 
     /**
-     * createCriteria
-     * @return 
+     * @return Criteria
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -108,8 +85,7 @@ public class BookCriteria {
     }
 
     /**
-     * createCriteriaInternal
-     * @return 
+     * @return Criteria
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -117,8 +93,6 @@ public class BookCriteria {
     }
 
     /**
-     * clear
-     * @return 
      */
     public void clear() {
         oredCriteria.clear();
@@ -127,9 +101,7 @@ public class BookCriteria {
     }
 
     /**
-     * setPageNo
      * @param pageNo
-     * @return 
      */
     public void setPageNo(Integer pageNo) {
         this.pageNo=pageNo;
@@ -137,34 +109,28 @@ public class BookCriteria {
     }
 
     /**
-     * getPageNo
-     * @return 
+     * @return java.lang.Integer
      */
     public Integer getPageNo() {
         return pageNo;
     }
 
     /**
-     * setStartRow
      * @param startRow
-     * @return 
      */
     public void setStartRow(Integer startRow) {
         this.startRow=startRow;
     }
 
     /**
-     * getStartRow
-     * @return 
+     * @return java.lang.Integer
      */
     public Integer getStartRow() {
         return startRow;
     }
 
     /**
-     * setPageSize
      * @param pageSize
-     * @return 
      */
     public void setPageSize(Integer pageSize) {
         this.pageSize=pageSize;
@@ -172,30 +138,18 @@ public class BookCriteria {
     }
 
     /**
-     * getPageSize
-     * @return 
+     * @return java.lang.Integer
      */
     public Integer getPageSize() {
         return pageSize;
     }
 
     /**
-     * setFields
-     * @param fields
-     * @return 
+     * 
+     * <p>图书
+     * @author tanzibiao
+     * @date 2023-05-08 20:19:41
      */
-    public void setFields(String fields) {
-        this.fields=fields;
-    }
-
-    /**
-     * getFields
-     * @return 
-     */
-    public String getFields() {
-        return fields;
-    }
-
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
 
@@ -506,14 +460,86 @@ public class BookCriteria {
             addCriterion("user not between", value1, value2, "user");
             return (Criteria) this;
         }
+
+        public Criteria andDelIsNull() {
+            addCriterion("del is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelIsNotNull() {
+            addCriterion("del is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelEqualTo(Boolean value) {
+            addCriterion("del =", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelNotEqualTo(Boolean value) {
+            addCriterion("del <>", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelGreaterThan(Boolean value) {
+            addCriterion("del >", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("del >=", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelLessThan(Boolean value) {
+            addCriterion("del <", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelLessThanOrEqualTo(Boolean value) {
+            addCriterion("del <=", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelIn(List<Boolean> values) {
+            addCriterion("del in", values, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelNotIn(List<Boolean> values) {
+            addCriterion("del not in", values, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelBetween(Boolean value1, Boolean value2) {
+            addCriterion("del between", value1, value2, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("del not between", value1, value2, "del");
+            return (Criteria) this;
+        }
     }
 
+    /**
+     * 
+     * <p>图书
+     * @author tanzibiao
+     * @date 2023-05-08 20:19:41
+     */
     public static class Criteria extends GeneratedCriteria {
         protected Criteria() {
             super();
         }
     }
 
+    /**
+     * 
+     * <p>图书
+     * @author tanzibiao
+     * @date 2023-05-08 20:19:41
+     */
     public static class Criterion {
         private String condition;
 
